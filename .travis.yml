@@ -7,3 +7,5 @@ before_install:
 script:
   - xcodebuild clean build -workspace CICD.xcworkspace -scheme CICD -destination 'platform=iOS Simulator,OS=16.0,name=iPhone 14 Pro' CODE_SIGNING_REQUIRED=NO
   - xcodebuild test -workspace CICD.xcworkspace -scheme CICD -destination 'platform=iOS Simulator,OS=16.0,name=iPhone 14 Pro' CODE_SIGNING_REQUIRED=NO
+  - xcodebuild archive -workspace CICD.xcworkspace -scheme CICD -destination 'generic/platform=iOS' -archivePath build/CICD.xcarchive
+  - xcodebuild -exportArchive -archivePath build/CICD.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build
