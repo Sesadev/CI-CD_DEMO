@@ -14,6 +14,9 @@ script:
 before_deploy:
   - mv "build/CICD.ipa" "build/CICD-$TRAVIS_TAG.ipa"
 
+script:
+  - ls -R
+
 deploy:
   provider: releases
   api_key: $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
