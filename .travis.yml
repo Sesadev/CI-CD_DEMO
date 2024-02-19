@@ -1,0 +1,9 @@
+language: swift
+osx_image: xcode14.0
+
+before_install:
+  - pod install
+
+script:
+  - xcodebuild clean build -workspace CICD.xcworkspace -scheme CICD -destination 'platform=iOS Simulator,OS=16.0,name=iPhone 14 Pro' CODE_SIGNING_REQUIRED=NO
+  - xcodebuild test -workspace CICD.xcworkspace -scheme CICD -destination 'platform=iOS Simulator,OS=16.0,name=iPhone 14 Pro' CODE_SIGNING_REQUIRED=NO
